@@ -1,14 +1,22 @@
 // Load the http module
-import http from "http"
+import express from "express"
 import sum from "./sum.js"
+
 function handleRequest(req, res){
-  const nums = req.url.slice(1).split("&")
-  const result = sum(nums[0]?.split("=")[1], nums[1]?.split("=")[1])
-  res.end("sum of : "+nums[0]?.split("=")[1]+" and "+nums[1]?.split("=")[1]+" is "+ result);
+  const {a, b} = req.body
+  res.json({result: sum(a, b)});
 }
 
 // Create the server
-const server = http.createServer(handleRequest);
+const server = express();
+
+// Middleware to parse JSON
+server.use(express.json());
+
+// Serve static files (HTML, CSS, JS) from "public" folder
+server.use(express.static('public'));
+
+server.post("/sum",handleRequest)
 
 function listenServer()  {
   console.log("Server running at PORT: 3000");

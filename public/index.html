@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet Me</title>
+<style>
+    h2{
+    color: blue;
+}
+</style>
+</head>
+<body>
+    <h2>Greet Me</h2>
+    <p>Hi, This website will greet you, try now </p>
+    <p>testing</p>
+    <input id="a"/>
+    <input id="b"/>
+    <button onclick="sum()">sum</button>
+    <script>
+    async function sum(){
+            const a = document.getElementById("a").value
+            const b = document.getElementById("b").value
+            const response = await fetch("/sum", {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({a:a, b: b})
+            })
+            const data = await response.json()
+            console.log(data.result)
+            }
+    </script>
+</body>
+</html>
