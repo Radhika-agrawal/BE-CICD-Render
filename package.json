@@ -1,0 +1,25 @@
+{
+  "name": "be-cicd-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Radhika-agrawal/BE-CICD-Render.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Radhika-agrawal/BE-CICD-Render/issues"
+  },
+  "homepage": "https://github.com/Radhika-agrawal/BE-CICD-Render#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "vitest": "^3.2.4"
+  }
+}

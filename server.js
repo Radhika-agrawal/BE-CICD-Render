@@ -1,9 +1,10 @@
 // Load the http module
 import http from "http"
-
+import sum from "./sum.js"
 function handleRequest(req, res){
-  const id = req.url.slice(1).split("=")[1]
-  res.end("user has sent id : "+id);
+  const nums = req.url.slice(1).split("&")
+  const result = sum(nums[0]?.split("=")[1], nums[1]?.split("=")[1])
+  res.end("sum of : "+nums[0]?.split("=")[1]+" and "+nums[1]?.split("=")[1]+" is "+ result);
 }
 
 // Create the server
