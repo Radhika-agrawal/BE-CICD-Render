@@ -17,6 +17,7 @@
     <input id="a"/>
     <input id="b"/>
     <button onclick="sum()">sum</button>
+    <h2 id="result">Loading..</h2>
     <script>
     async function sum(){
             const a = document.getElementById("a").value
@@ -26,10 +27,10 @@
                 headers:{
                     "Content-Type": "application/json"
                 },
-                body:JSON.stringify({a:a, b: b})
+                body:JSON.stringify({a: a, b: b})
             })
             const data = await response.json()
-            console.log(data.result)
+            document.getElementById("result").textContent = data.result;
             }
     </script>
 </body>
